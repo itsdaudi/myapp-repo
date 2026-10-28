@@ -130,14 +130,33 @@ docker run -p 3000:3000 myapp
 
 ## Screenshots
 
-Add screenshots to a `screenshots/` folder and link them here:
+### CI/CD pipeline
+![Pipeline success](screenshots/01-pipeline-success.png)
+*All four stages (Source, Build, Approval, Deploy) succeeded.*
 
-- Pipeline with all four stages succeeded
-- Approval waiting, approved, and rejected runs
-- CodeDeploy Blue/Green deployment
-- ECS service with healthy targets behind the ALB
-- Live application served through the ALB
-- CloudWatch alarm, its history, and the alert email
+### Manual approval
+<p>
+  <img src="screenshots/02-approval-waiting.png" alt="Waiting for approval" width="32%">
+  <img src="screenshots/03-approval-review.png" alt="Approval review dialog" width="32%">
+  <img src="screenshots/04-approval-approved.png" alt="Approved, deploy running" width="32%">
+</p>
+
+*Left to right: pipeline paused at Approval, the review dialog, and the pipeline continuing to Deploy after approval.*
+
+### Blue/Green deployment
+![CodeDeploy Blue/Green](screenshots/05-codedeploy-bluegreen.png)
+*CodeDeploy shifted 100% of traffic to the replacement task set and terminated the original.*
+
+### ECS service
+![ECS service healthy](screenshots/06-ecs-service-healthy.png)
+*One running task, one healthy target behind the Application Load Balancer.*
+
+### Monitoring
+![Alert email](screenshots/07-alert-email.png)
+*Email received from the CloudWatch alarm through SNS.*
+
+### Local run
+![App running locally](screenshots/08-local-app.png)
 
 ## Troubleshooting notes
 
